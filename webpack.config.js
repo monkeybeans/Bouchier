@@ -11,7 +11,7 @@ module.exports = {
     //noInfo: true, //  --no-info option
     //progress: true,
     // proxy: {
-    //     "*": "http://localhost:9090", //webpack dev server running on 9090
+    //      "*": "http://localhost:9090", //webpack dev server running on 9090
     // },
   }
 };
