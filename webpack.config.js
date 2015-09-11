@@ -20,7 +20,7 @@ module.exports = {
   externals: {
     //don't bundle the 'react' npm package with our bundle.js
     //but get it from a global 'React' variable
-    //'react': 'React'
+    'react': 'React'
   },
 
   resolve: {
@@ -31,7 +31,7 @@ module.exports = {
   devtool: "#inline-source-map",
 
   devServer: {
-    //contentBase: "./build/", //serve from this folder, but will not find index.html then.
+    contentBase: "./web/", //serve from this folder.
     //noInfo: true, //  --no-info option
     //progress: true,
     // proxy: {
