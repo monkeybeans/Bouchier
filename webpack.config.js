@@ -11,12 +11,24 @@ module.exports = {
 
   module: {
     loaders: [
-      {
-        test: /\.scss$/,
-        loader: 'style!css!sass'
-      }
+      { test: /\.scss$/, loader: 'style!css!sass!'},
+      { test: /\.jsx$/, loader: 'jsx-loader?insertPragma=React.DOM&harmony' },
+      { test: /\.jsx?$/, exclude: /(node_modules|bower_components)/,loader: 'babel' },
     ]
   },
+
+  externals: {
+    //don't bundle the 'react' npm package with our bundle.js
+    //but get it from a global 'React' variable
+    //'react': 'React'
+  },
+
+  resolve: {
+    //what require should include
+    extensions: ['', '.js', '.jsx'],
+  },
+
+  devtool: "#inline-source-map",
 
   devServer: {
     //contentBase: "./build/", //serve from this folder, but will not find index.html then.
