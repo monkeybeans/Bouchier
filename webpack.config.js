@@ -1,4 +1,5 @@
 module.exports = {
+  //bail: true, //don't swallow errors.
   context: __dirname,
 
   entry: "./src/main.js", //the loader

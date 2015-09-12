@@ -3,11 +3,13 @@
     <head>
         <title>= Banan 1.0 =</title>
         <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="resources/overview.css">
     </head>
-    <body>
+    <body class="not-authenticated">
         <script src="/webpack-dev-server.js"></script>
-        <p>Seem to be working ok now</p>
-        <div class="content not-authenticated">
+
+        <div class="page-content">
+            <p>Seem to be working ok now</p>
             <div id="top" class="top"></div>
             <nav id="navigation" class="display-desktop"></nav>
             <div id="login"></div>
@@ -16,7 +18,8 @@
             <div id="column-last" class="display-desktop"></div>
             <div id="bottom" class="bottom display-all-devices"></div>
         </div>
+
         <script src="/lib/react-with-addons.min.js"></script>
-        <script src="/assets/banan.js"></script>
+        <script src="/assets/banan.js" async></script>
     </body>
 </html>

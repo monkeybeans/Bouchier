@@ -1,8 +1,38 @@
-//@import '../../mixins/palette.scss';
+@import '../../mixins/palette';
 
 
 .login {
-    &__row {
-        display: block;
+  background: red;
+  border-radius: 30px;
+  height: 149px;
+  margin: auto;
+  padding: 21px;
+  width: 350px;
+
+  &__data {
+    position: relative;
+  }
+
+  &__input {
+    label {
+      display: inline-block;
+      width: 90px;
     }
+    input {
+      width: 150px;
+    }
+  }
+
+  &__submit {
+    color: $button-txt-clr;
+    position: relative;
+    right: 0;
+    background: $button-clr;
+    cursor: default;
+    text-transform: capitalize;
+    text-align: center;
+  }
+  &__submit:hover {
+    background: $button-active-clr;
+  }
 }
