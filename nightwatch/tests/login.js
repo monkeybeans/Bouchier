@@ -1,11 +1,12 @@
 module.exports = {
-  'Demo test Google' : function (browser) {
+  'Login with valid user' : function (browser) {
     browser
-      .url('http://www.google.com')
+      .url('localhost:8080')
       .waitForElementVisible('body', 1000)
-      .setValue('input[type=text]', 'nightwatch')
-      .waitForElementVisible('button[name=btnG]', 1000)
-      .click('button[name=btnG]')
+      .setValue('#field_username', 'apan')
+      .setValue('#field_password', 'apansson')
+      //.waitForElementVisible('button[name=btnG]', 1000)
+      .click('#button_login')
       .pause(1000)
       .assert.containsText('#main', 'Night Watch')
       .end();

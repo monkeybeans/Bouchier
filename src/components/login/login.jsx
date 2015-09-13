@@ -40,9 +40,9 @@ export default class Login extends React.Component {
         return(
             <div className="login">
               <form className="login__data" action="#" method="GET" ref="loginForm">
-                <p className="login__input"><label>User Name</label><input type="text" name="username"></input></p>
-                <p className="login__input"><label>Password</label><input type="text" name="password"></input></p>
-                <div className="login__submit" onClick={this.submit.bind(this)}>Login</div>
+                <p className="login__input"><label>User Name</label><input id="field_username" type="text" name="username"></input></p>
+                <p className="login__input"><label>Password</label><input id="field_password" type="text" name="password"></input></p>
+                <div id="button_login" className="login__submit" onClick={this.submit.bind(this)}>Login</div>
               </form>
                 <p><a href="/signup">Sign Up</a></p>
             </div>
