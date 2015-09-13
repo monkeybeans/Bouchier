@@ -17,6 +17,8 @@
     "chai": "^3.2.0",
     "css-loader": "^0.18.0",
     "jsx-loader": "^0.13.2",
+    "karma": "^0.13.9",
+    "karma-mocha": "^0.2.0",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.3.2",
     "node-sass": "^3.3.2",
