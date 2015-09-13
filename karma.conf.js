@@ -1,6 +1,10 @@
 // Karma configuration
 // Generated on Sun Sep 13 2015 16:06:01 GMT+0200 (CEST)
 
+var webpackConfig = require('./webpack.config.js');
+
+webpackConfig.externals = {};
+
 module.exports = function(config) {
   config.set({
 
@@ -23,11 +27,7 @@ module.exports = function(config) {
     exclude: [
     ],
 
-    plugins : [
-      'karma-mocha',
-      'karma-phantomjs-launcher',
-      'karma-webpack',
-    ],
+    //plugins : [], kama uses karma-* from package.json
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
@@ -66,6 +66,8 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: false,
+
+    webpack: webpackConfig,
   })
 }
