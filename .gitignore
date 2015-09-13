@@ -1,3 +1,6 @@
+## FOLDERS ##
 node_modules
+build
 
+## FILES ##
 npm-debug.log

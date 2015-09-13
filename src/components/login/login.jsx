@@ -1,6 +1,7 @@
 require('./login.scss');
 
 import React from 'react';
+import _ from 'lodash';
 
 
 export default class Login extends React.Component {
@@ -19,6 +20,14 @@ export default class Login extends React.Component {
 
 
       formElem.submit();
+    }
+
+    _validateForm(input){
+      _.forEach(input, (n, key) => {
+        console.log(n, key);
+
+      });
+
     }
 
     render(){
