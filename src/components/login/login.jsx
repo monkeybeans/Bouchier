@@ -18,16 +18,22 @@ export default class Login extends React.Component {
         input[elem.getAttribute('name')] = elem.value;
       });
 
-
-      formElem.submit();
+      if ( this._validateForm(input) ){
+        formElem.submit();
+      }
     }
 
     _validateForm(input){
-      _.forEach(input, (n, key) => {
-        console.log(n, key);
+      if ( input == null ) { return false; }
+      if ( Object.keys(input).length === 0 ) { return false; }
 
-      });
+      for (let prop in input) {
+        if ( !input[prop] && input[prop] !== 0) {
+          return false;
+        }
+      };
 
+      return true;
     }
 
     render(){
