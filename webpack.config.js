@@ -2,11 +2,14 @@ module.exports = {
   //bail: true, //don't swallow errors.
   context: __dirname,
 
-  entry: "./src/main.js", //the loader
+  entry:
+    { main: "./src/main.js", //the loader
+      start: "./src/start.js",
+    },
 
   output: {
     path: "./build/", //build to this dir
-    filename: "banan.js", //name that the bundle will have
+    filename: "[name].js", //name that the bundle will have
     publicPath: "/assets/", //public endpoint
   },
 
