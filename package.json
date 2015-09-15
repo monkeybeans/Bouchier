@@ -23,6 +23,8 @@
     "karma-mocha": "^0.2.0",
     "karma-spec-reporter": "0.0.20",
     "karma-webpack": "^1.7.0",
+    "koa": "^1.0.0",
+    "koa-router": "^5.1.2",
     "mocha": "^2.3.2",
     "nightwatch": "^0.8.1",
     "node-sass": "^3.3.2",
