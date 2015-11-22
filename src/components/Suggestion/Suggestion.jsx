@@ -1,4 +1,4 @@
-require('./vote.scss');
+require('./suggestion.scss');
 
 import React from 'react';
 import _ from 'lodash';

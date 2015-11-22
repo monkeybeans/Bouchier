@@ -3,8 +3,8 @@ module.exports = {
   context: __dirname,
 
   entry:
-    { main: "./src/main.js", //the loader
-      voteLoader: "./src/voteLoader.js",
+    { loginLoader: "./src/loginLoader.js", //the loader
+      suggestionLoader: "./src/suggestionLoader.js",
     },
 
   output: {
