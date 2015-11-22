@@ -4,7 +4,7 @@ module.exports = {
 
   entry:
     { main: "./src/main.js", //the loader
-      start: "./src/start.js",
+      voteLoader: "./src/voteLoader.js",
     },
 
   output: {
@@ -36,6 +36,7 @@ module.exports = {
 
   devServer: {
     contentBase: "./web/", //serve from this folder.
+    port: 9090,
     //noInfo: true, //  --no-info option
     //progress: true,
     // proxy: {
