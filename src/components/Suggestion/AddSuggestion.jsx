@@ -3,56 +3,49 @@ require('./suggestion.scss');
 import React from 'react';
 import _ from 'lodash';
 
+import GlosterApi from '../../../api/glosterApi.js';
+
 
 export default class AddSuggestion extends React.Component {
     constructor(props){
         super(props);
     }
 
-    _getVotes(){
-      const votes = [
-        {
-          id: 1,
-          suggestion: "apa",
-          description: "ohohoh ohoh ohoho hhoho"
-        },
-        {
-          id: 2,
-          suggestion: "banan",
-          description: "yellow yellow is the color of the skin"
-        },
-        {
-          id: 3,
-          suggestion: "lian",
-          description: "swingiliswing"
-        }
+    addSuggestion(e) {
+      e.preventDefault();
 
-      ];
+      let suggestion = this.newSuggestionForm;// = new FormData(this.newSuggestionForm);
+      console.log(suggestion);
 
-      return votes;
-    };
+      let error = GlosterApi.addSuggestion(suggestion);
+
+      if(error){
+        console.error(error);
+      }
+
+    }
 
     render(){
-        const votes = this._getVotes();
-
+        const suggestions = GlosterApi.getSuggestions();
 
         return(
             <div className="vote">
-              <form>
                 <div>
-                  <radioGroup >
-                  { votes.map((vote)=>{
+                  { suggestions.map( (suggestion)=>{
                       return (
-                        <input type="radio" name="selectedVote" value={vote.id} key={vote.id}>{vote.suggestion}</input>
+                        <p key={suggestion.id}>{suggestion.name}</p>
                       );
                     })
                   }
-                </radioGroup>
                 </div>
                 <div>
-                  <a href="#">+ add a suggestion</a>
+                  <a href="#" >+ add a suggestion</a>
+                  <form id="new-suggestion" onSubmit={this.addSuggestion.bind(this)} ref={(ref) => this.newSuggestionForm = ref}>
+                    <div><input type="input" name="newSuggestionName"></input></div>
+                    <div><textarea type="textarea" name="newSuggestionSummary" rows="10" cols="50"></textarea></div>
+                    <div><input type="submit" value="Submit suggestion"/></div>
+                  </form>
                 </div>
-              </form>
             </div>
         );
     };
