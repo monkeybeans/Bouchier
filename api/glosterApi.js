@@ -36,7 +36,7 @@ class GlosterApi {
       error = "addSuggestion:: missing suggestion description";
     } else {
       const maxId = Math.max.apply(
-        Math, suggestions.map((suggestion) => { return suggestion.id;}));
+        Math, this.suggestions.map((suggestion) => { return suggestion.id;}));
       suggestion.id = maxId + 1;
       this.suggestions.push(suggestion);
     }

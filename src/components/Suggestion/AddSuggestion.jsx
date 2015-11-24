@@ -9,31 +9,40 @@ import GlosterApi from '../../../api/glosterApi.js';
 export default class AddSuggestion extends React.Component {
     constructor(props){
         super(props);
+
+        this.state = {suggestions: GlosterApi.getSuggestions()};
     }
 
     addSuggestion(e) {
       e.preventDefault();
 
-      let suggestion = this.newSuggestionForm;// = new FormData(this.newSuggestionForm);
-      console.log(suggestion);
+      let suggestionForm = this.newSuggestionForm.getDOMNode();
+      let suggestion =  new FormData(suggestionForm);
 
-      let error = GlosterApi.addSuggestion(suggestion);
+      let error = GlosterApi.addSuggestion({
+        name: suggestion.get('newSuggestionName'),
+        description: suggestion.get('newSuggestionSummary'),
+      });
 
       if(error){
         console.error(error);
+      } else {
+        suggestionForm.reset();
+        this.setState({suggestions: GlosterApi.getSuggestions()});
       }
 
     }
 
     render(){
-        const suggestions = GlosterApi.getSuggestions();
-
         return(
             <div className="vote">
                 <div>
-                  { suggestions.map( (suggestion)=>{
+                  { this.state.suggestions.map( (suggestion)=>{
                       return (
-                        <p key={suggestion.id}>{suggestion.name}</p>
+                        <div key={suggestion.id}>
+                          <h2>{suggestion.name}</h2>
+                          <p>{suggestion.description}</p>
+                        </div>
                       );
                     })
                   }
